@@ -62,3 +62,9 @@ typings/
 
 # Python env
 virtualenv/
+
+# Python byte code
+*.pyc
+
+# VS Code
+.vscode/
