@@ -1,0 +1,7 @@
+environment: development
+api:
+  port: 8080
+rabbit:
+  host: localhost
+  exchange: ''
+  queue: tasks
