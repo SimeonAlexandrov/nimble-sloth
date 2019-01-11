@@ -8,7 +8,7 @@ def talk():
 
     channel.basic_publish(exchange='',
                             routing_key='tasks',
-                            body='HelloWorld!')
+                            body='Test!')
 
     print 'sent hw'
     connection.close()
