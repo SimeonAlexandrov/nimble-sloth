@@ -1,6 +1,7 @@
-#cloudbuild.yaml
 steps:
 - name: 'docker/compose:1.19.0'
   args: ['up', '-d']
   dir: 'src'
-images: ['gcr.io/the-nimble-sloth-truck/the-nimble-sloth-truck@sha256:618737f1e7fe06727a60a2ef7f8123ebf75e505a20666c38c1633d1148160797']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 'workspace_app:latest', 'gcr.io/$PROJECT_ID/the-nimble-sloth-truck:$COMMIT_SHA']
+images: ['gcr.io/$PROJECT_ID/the-nimble-sloth-truck:$COMMIT_SHA']
