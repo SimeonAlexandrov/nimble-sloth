@@ -14,7 +14,7 @@ def callback(ch, method, properties, body):
 
 def subscribe():
     connect(name=cfg['db']['name'], host=cfg['db']['host'], port=cfg['db']['port'], connect=False)
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host=cfg['rabbit']['host']))
+    connection = pika.BlockingConnection(pika.URLParameters('amqp://xnennbql:uu7tKh7tBcKe173L3rIYdE4921wbhPfd@bee.rmq.cloudamqp.com/xnennbql'))
     channel = connection.channel()
 
     channel.queue_declare(queue=cfg['rabbit']['queue'])

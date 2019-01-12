@@ -11,7 +11,7 @@ def talk():
         'dest_lat': random.randint(0,100)
     }
         
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+    connection = pika.BlockingConnection(pika.URLParameters(cfg['rabbit']['url']))
     channel = connection.channel()
     channel.queue_declare(queue='tasks')
 

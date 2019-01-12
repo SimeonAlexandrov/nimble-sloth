@@ -5,6 +5,7 @@ rabbit:
   host: localhost
   exchange: ''
   queue: tasks
+  url: 'amqp://xnennbql:uu7tKh7tBcKe173L3rIYdE4921wbhPfd@bee.rmq.cloudamqp.com/xnennbql'
 db:
   host: localhost
   port: 27017
