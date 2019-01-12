@@ -1,5 +1,6 @@
 import time
 from multiprocessing import Process
+from mongoengine import connect
 
 from api.app import app
 from lib.config import cfg
@@ -10,8 +11,8 @@ def main():
     p = Process(target=subscribe)
     p.daemon = True
     p.start()
-    # p.join()
     app.run(port=cfg['api']['port'])
+    p.join()
     
 if __name__ == '__main__':
     main()

@@ -5,3 +5,7 @@ rabbit:
   host: localhost
   exchange: ''
   queue: tasks
+db:
+  host: localhost
+  port: 27017
+  name: truck
