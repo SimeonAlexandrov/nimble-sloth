@@ -3,5 +3,5 @@ steps:
   args: ['up', '-d']
   dir: 'src'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'the-nimble-sloth-truck:latest', 'gcr.io/$PROJECT_ID/the-nimble-sloth-truck:$COMMIT_SHA']
-images: ['gcr.io/$PROJECT_ID/the-nimble-sloth-truck:$COMMIT_SHA']
+  args: ['tag', 'workspace_web', 'gcr.io/$PROJECT_ID/the-nimble-sloth-truck:latest']
+images: ['gcr.io/$PROJECT_ID/the-nimble-sloth-truck:latest']
