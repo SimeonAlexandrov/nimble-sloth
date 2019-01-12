@@ -3,4 +3,4 @@ steps:
 - name: 'docker/compose:1.19.0'
   args: ['up', '-d']
   dir: 'src'
-images: ['gcr.io/$PROJECT_ID/simeon:$COMMIT_SHA']
+images: ['gcr.io/the-nimble-sloth-truck/the-nimble-sloth-truck:$COMMIT_SHA']
