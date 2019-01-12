@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    build: .
+    command: python -u main.py
+    network_mode: "host"
+  db:
+    image: mongo:3.0.2
+    network_mode: "host"
