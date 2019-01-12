@@ -1,9 +1,8 @@
 #cloudbuild.yaml
 steps:
-- name: 'cd'
-  args: ['./src']
 - name: 'docker/compose:1.19.0'
   args: ['up', '-d']
+  dir: '/src'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['tag', 'nimble_sloth:latest', 'gcr.io/$PROJECT_ID/simeon:$COMMIT_SHA']
 images: ['gcr.io/$PROJECT_ID/simeon:$COMMIT_SHA']
