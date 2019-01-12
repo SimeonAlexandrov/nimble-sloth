@@ -11,7 +11,7 @@ def main():
     p = Process(target=subscribe)
     p.daemon = True
     p.start()
-    app.run(port=cfg['api']['port'])
+    app.run(host='0.0.0.0', port=cfg['api']['port'])
     p.join()
     
 if __name__ == '__main__':
