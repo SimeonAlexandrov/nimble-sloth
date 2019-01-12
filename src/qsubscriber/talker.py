@@ -11,7 +11,7 @@ def talk():
         'dest_lat': random.randint(0,100)
     }
         
-    connection = pika.BlockingConnection(pika.URLParameters(cfg['rabbit']['url']))
+    connection = pika.BlockingConnection(pika.URLParameters('amqp://xnennbql:uu7tKh7tBcKe173L3rIYdE4921wbhPfd@bee.rmq.cloudamqp.com/xnennbql'))
     channel = connection.channel()
     channel.queue_declare(queue='tasks')
 

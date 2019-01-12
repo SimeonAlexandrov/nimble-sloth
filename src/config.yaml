@@ -1,6 +1,6 @@
 environment: development
 api:
-  port: 8080
+  port: 80
 rabbit:
   host: localhost
   exchange: ''
