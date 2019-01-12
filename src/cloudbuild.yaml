@@ -3,4 +3,4 @@ steps:
 - name: 'docker/compose:1.19.0'
   args: ['up', '-d']
   dir: 'src'
-images: ['gcr.io/the-nimble-sloth-truck/the-nimble-sloth-truck:$latest']
+images: ['gcr.io/the-nimble-sloth-truck/the-nimble-sloth-truck@sha256:618737f1e7fe06727a60a2ef7f8123ebf75e505a20666c38c1633d1148160797']
