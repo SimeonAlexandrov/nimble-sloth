@@ -1,5 +1,6 @@
 import json
 from flask import Flask
+from flask import jsonify
 from mongoengine import connect
 
 from models import Order
@@ -11,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/status')
 def index():
-    return json.dumps(
+    return jsonify(
         {
             "applicationName": "The Nimble Sloth Truck Simulator",
             "applicationAddress": cfg['api']['url'],
@@ -29,4 +30,4 @@ def get_orders():
                 'order_id': order.order_id
             }
         )
-    return json.dumps({'status': 'ok', 'data': actual_response})
+    return jsonify({'status': 'ok', 'data': actual_response})
