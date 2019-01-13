@@ -11,7 +11,13 @@ app = Flask(__name__)
 
 @app.route('/status')
 def index():
-    return json.dumps({'status': 'ok', 'data': {}})
+    return json.dumps(
+        {
+            "applicationName": "The Nimble Sloth Truck Simulator",
+            "applicationAddress": cfg['api']['url'],
+            "applicationStatus": "OK"
+        }
+    )
 
 @app.route('/orders')
 def get_orders():

@@ -12,7 +12,7 @@ def callback(ch, method, properties, body):
     #TODO update statuses, ask for recipient data
 
 
-def subscribe():
+def subscribe(session_id):
     connect(name=cfg['db']['name'], host=cfg['db']['host'], port=cfg['db']['port'], connect=False)
     connection = pika.BlockingConnection(pika.URLParameters('amqp://xnennbql:uu7tKh7tBcKe173L3rIYdE4921wbhPfd@bee.rmq.cloudamqp.com/xnennbql'))
     channel = connection.channel()
@@ -22,7 +22,7 @@ def subscribe():
                         queue=cfg['rabbit']['queue'],
                         no_ack=True)
 
-    print 'Started listening'
+    print 'Started listening to the queue'
     channel.start_consuming()
 
 if __name__ == '__main__':
