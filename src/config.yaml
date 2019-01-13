@@ -5,7 +5,7 @@ api:
 rabbit:
   host: localhost
   exchange: ''
-  queue: tasks
+  queue: 'nimble-sloth-queue'
   url: 'amqp://xnennbql:uu7tKh7tBcKe173L3rIYdE4921wbhPfd@bee.rmq.cloudamqp.com/xnennbql'
 db:
   host: localhost

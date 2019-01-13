@@ -25,7 +25,8 @@ def index():
         {
             "applicationName": "The Nimble Sloth Truck Simulator",
             "applicationAddress": cfg['api']['url'],
-            "applicationStatus": "OK"
+            "applicationStatus": "OK",
+            "truckData": app.config['truck_data']._callmethod('__repr__')
         }
     )
 

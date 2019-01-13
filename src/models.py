@@ -13,10 +13,3 @@ class Order(Document):
     status = StringField()
     recipient_name = StringField()
     recipient_phone = StringField()
-
-class Truck(Document):
-    truck_id = StringField(required=True)
-    truck_lng = FloatField()
-    truck_lat = FloatField()
-    status = StringField()
-    

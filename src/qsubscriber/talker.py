@@ -5,23 +5,42 @@ import json
 
 def talk():
     
-    dummy_order = {
-        'order_id': str(uuid.uuid4()),
-        'dest_lng': random.randint(0,100),
-        'dest_lat': random.randint(0,100)
-    }
+    dummy_order = [
+        {
+            "orderId": 'order' + str(uuid.uuid4()),
+            "pickUp": {
+                "latitude": "12.433",
+                "longitude": "33.325325"
+            },
+            "destination": {
+                "latitude": "12.43264645",
+                "longitude": "33.325324264745"
+            }
+        },
+        {
+            "orderId": 'order' + str(uuid.uuid4()),
+            "pickUp": {
+                "latitude": "12.433",
+                "longitude": "33.325325"
+            },
+            "destination": {
+                "latitude": "12.43264645",
+                "longitude": "33.325324264745"
+            }
+        }
+    ]
         
     connection = pika.BlockingConnection(pika.URLParameters('amqp://xnennbql:uu7tKh7tBcKe173L3rIYdE4921wbhPfd@bee.rmq.cloudamqp.com/xnennbql'))
     channel = connection.channel()
-    channel.queue_declare(queue='tasks')
+    channel.queue_declare(queue='nimble-sloth-queue', durable=True)
 
     message_body = json.dumps(dummy_order)
 
     channel.basic_publish(exchange='',
-                            routing_key='tasks',
+                            routing_key='nimble-sloth-queue',
                             body=message_body)
 
-    print 'Sent order with id %s' % dummy_order['order_id']
+    print 'Sent %s orders' % len(dummy_order)
     connection.close()
 
 if __name__ == '__main__':
