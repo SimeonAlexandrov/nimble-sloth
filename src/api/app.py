@@ -9,7 +9,7 @@ connect(name=cfg['db']['name'], host=cfg['db']['host'], port=cfg['db']['port'], 
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/status')
 def index():
     return json.dumps({'status': 'ok', 'data': {}})
 
