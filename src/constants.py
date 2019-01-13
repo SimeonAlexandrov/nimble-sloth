@@ -1,0 +1,17 @@
+CONSTANTS = {
+    'ORDER': {
+        'PENDING': 'PENDING',
+        'AT_WAREHOUSE': 'AT_WAREHOUSE',
+        'DELIVERING': 'DELIVERING',
+        'DELIVERED': 'DELIVERED' 
+    }, 
+    'TRUCK': {
+        'AT_WAREHOUSE': 'AT_WAREHOUSE',
+        'TRAVELLING_TO_WAREHOUSE': 'TRAVELLING_TO_WAREHOUSE',
+        'DELIVERING_ORDER': 'DELIVERING_ORDER'
+    },
+    'WAREHOUSE_LOCATION': {
+        'LAT': 42.6743768,
+        'LNG': 23.3282929
+    }
+}

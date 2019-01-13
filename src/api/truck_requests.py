@@ -42,11 +42,12 @@ def router_login():
         return res['sessionId']
 
 
-def get_receiver_info(order_id):
+def get_receiver_info():
     pass
 
 def warehouse_query():
     pass
 
-def update_order_status(order_id):
+def update_order_status(status, order_id):
+    print 'Demo update status to {} of order {}'.format(status, order_id)
     pass

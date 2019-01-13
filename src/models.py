@@ -4,11 +4,11 @@ from lib.config import cfg
 class Order(Document):
     order_id = StringField(required=True)
     
-    src_lng = FloatField()
-    src_lat = FloatField()
+    src_lng = StringField()
+    src_lat = StringField()
     
-    dest_lng = FloatField()
-    dest_lat = FloatField()
+    dest_lng = StringField()
+    dest_lat = StringField()
 
     status = StringField()
     recipient_name = StringField()

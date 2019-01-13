@@ -7,12 +7,13 @@ from api.app import app
 from api.truck_requests import router_login
 from lib.config import cfg
 from qsubscriber.subscriber import subscribe
+from constants import CONSTANTS
 
 def init_truck_data(truck_data_object):
     truck_data_object['truck_id'] = cfg['requests']['truck_app_id']
-    truck_data_object['status'] = 'CHILLIN_IN_WAREHOUSE'
-    truck_data_object['lat'] = 'WAREHOUSE_LAT'
-    truck_data_object['lng'] = 'WAREHOUSE_LNG'
+    truck_data_object['status'] = CONSTANTS['TRUCK']['AT_WAREHOUSE']
+    truck_data_object['lat'] = CONSTANTS['WAREHOUSE_LOCATION']['LAT']
+    truck_data_object['lng'] =  CONSTANTS['WAREHOUSE_LOCATION']['LNG']
     truck_data_object['capacity'] = 100
 
 def main():
@@ -20,7 +21,7 @@ def main():
     # Init truck general data 
     truck_data = manager.dict()
     init_truck_data(truck_data)
-    
+
     # Obtain session id from router
     session_id = router_login()
 
