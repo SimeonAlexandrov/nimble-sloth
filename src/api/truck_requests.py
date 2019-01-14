@@ -66,7 +66,7 @@ def warehouse_delete(order_id, session_id):
     warehouse_url = profile_result['url']
     print 'Warehouse url obtained %s' % warehouse_url
 
-    put_request = requests.delete(warehouse_url + '/orders' + order_id, headers={'X-Auth-Token': cfg['requests']['token']})
+    put_request = requests.delete(warehouse_url + '/orders/' + order_id, headers={'X-Auth-Token': cfg['requests']['token']})
     print 'Delete request %s' % put_request.status_code
     print 'Order {} deleted from warehouse'.format(order_id)
     
