@@ -15,4 +15,6 @@ requests:
   truck_app_id: 'truck-1234'
   token: 'L6NeUQCivmBQEsYflJeeyFkTIieJwDW2'
   warehouse_app_id: 'the-nimble-sloth-warehouse'
+  facade_base_url: 'https://fe-the-nimble-sloth.firebaseio.com'
   router_base_url: 'https://the-nimble-sloth-router.herokuapp.com'
+  demo_user_id: 'cWQDXQ4yntb8gHcuAdK4wXcDvqH2'

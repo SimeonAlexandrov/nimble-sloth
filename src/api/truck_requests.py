@@ -42,12 +42,38 @@ def router_login():
         return res['sessionId']
 
 
-def get_receiver_info():
-    pass
+def get_receiver_info(order_id):
+    facade_request = requests.get(cfg['requests']['facade_base_url'] + '/orders/' + cfg['requests']['demo_user_id'] + '/' + order_id, 
+                       headers={'X-Auth-Token': cfg['requests']['token']})
+    
+    print 'Facade request info receiver {}'.format(facade_request.status_code)
 
-def warehouse_query():
-    pass
+def warehouse_put(order, session_id):
+    r = requests.get(cfg['requests']['router_base_url'] + '/apps/' + cfg['requests']['warehouse_app_id'], 
+                       headers={'X-Auth-Token': session_id})
+    profile_result = r.json()
+    warehouse_url = profile_result['url']
+    print 'Warehouse url obtained %s' % warehouse_url
+
+    put_request = requests.put(warehouse_url + order['orderId'], json={'order': order}, headers={'X-Auth-Token': cfg['requests']['token']})
+    print 'Put request %s' % put_request.status_code
+    print 'Order {} put to warehouse'.format(order['orderId'])
+
+def warehouse_delete(order_id, session_id):
+    r = requests.get(cfg['requests']['router_base_url'] + '/apps/' + cfg['requests']['warehouse_app_id'], 
+                       headers={'X-Auth-Token': session_id})
+    profile_result = r.json()
+    warehouse_url = profile_result['url']
+    print 'Warehouse url obtained %s' % warehouse_url
+
+    put_request = requests.delete(warehouse_url + order_id, headers={'X-Auth-Token': cfg['requests']['token']})
+    print 'Delete request %s' % put_request.status_code
+    print 'Order {} deleted from warehouse'.format(order_id)
+    
 
 def update_order_status(status, order_id):
-    print 'Demo update status to {} of order {}'.format(status, order_id)
+    facade_request = requests.patch(cfg['requests']['facade_base_url'] + '/orders/' + cfg['requests']['demo_user_id'] + '/' + order_id + '.json', 
+                       headers={'X-Auth-Token': cfg['requests']['token']},
+                       json={'status': status})
+    print 'Facade update status {}'.format(facade_request.status_code)
     pass

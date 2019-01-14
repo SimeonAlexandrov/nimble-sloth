@@ -42,7 +42,8 @@ def get_orders():
     for order in response:
         actual_response.append(
             {
-                'order_id': order.order_id
+                'order_id': order.order_id,
+                'status': order.status
             }
         )
     return jsonify({'status': 'ok', 'data': actual_response})
