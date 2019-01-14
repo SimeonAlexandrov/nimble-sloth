@@ -54,8 +54,8 @@ def warehouse_put(order, session_id):
     profile_result = r.json()
     warehouse_url = profile_result['url']
     print 'Warehouse url obtained %s' % warehouse_url
-
-    put_request = requests.put(warehouse_url + order['orderId'], json={'order': order}, headers={'X-Auth-Token': cfg['requests']['token']})
+    print 'Put order with id: {}'.format(order['orderId'])
+    put_request = requests.post(warehouse_url + '/orders', json={'id': order['orderId']}, headers={'X-Auth-Token': cfg['requests']['token']})
     print 'Put request %s' % put_request.status_code
     print 'Order {} put to warehouse'.format(order['orderId'])
 
@@ -66,7 +66,7 @@ def warehouse_delete(order_id, session_id):
     warehouse_url = profile_result['url']
     print 'Warehouse url obtained %s' % warehouse_url
 
-    put_request = requests.delete(warehouse_url + order_id, headers={'X-Auth-Token': cfg['requests']['token']})
+    put_request = requests.delete(warehouse_url + '/orders' + order_id, headers={'X-Auth-Token': cfg['requests']['token']})
     print 'Delete request %s' % put_request.status_code
     print 'Order {} deleted from warehouse'.format(order_id)
     

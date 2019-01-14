@@ -39,10 +39,10 @@ def callback(ch, method, properties, body, truck_data, session_id):
             receiver_info = get_receiver_info(order['orderId'])
 
             db_order = Order(order_id=order['orderId'], 
-                                dest_lat=order['destination']['latitude'], 
-                                dest_lng=order['destination']['longitude'],
-                                src_lat=order['pickUp']['latitude'],
-                                src_lng=order['pickUp']['longitude'],
+                                dest_lat=str(order['destination']['latitude']), 
+                                dest_lng=str(order['destination']['longitude']),
+                                src_lat=str(order['pickUp']['latitude']),
+                                src_lng=str(order['pickUp']['longitude']),
                                 status=CONSTANTS['ORDER']['DELIVERING']).save()
             
             print 'Order saved in db'
@@ -57,7 +57,7 @@ def callback(ch, method, properties, body, truck_data, session_id):
                 # Update in local db
                 print 'Order {} is delivered {}'.format(order['orderId'], 'AT_RECEIVER_ADDRESS')
             else:
-                # warehouse_put(order, session_id)
+                warehouse_put(order, session_id)
                 update_order_status(CONSTANTS['ORDER']['AT_WAREHOUSE'], order['orderId'])
                 # Update in local db
                 print 'Order {} is delivered {}'.format(order['orderId'], 'AT_WAREHOUSE')
