@@ -11,7 +11,7 @@ CONSTANTS = {
         'DELIVERING_ORDER': 'DELIVERING_ORDER'
     },
     'WAREHOUSE_LOCATION': {
-        'LAT': 42.6743768,
-        'LNG': 23.3282929
+        'LAT': '42.6979369',
+        'LNG': '23.3195273'
     }
 }

@@ -13,8 +13,8 @@ from api.truck_requests import get_receiver_info
 
 
 def are_orders_from_warehouse_to_address(orders):
-    first_lat = orders[0]['pickUp']['latitude']
-    first_lng = orders[0]['pickUp']['longitude']
+    first_lat = str(orders[0]['pickUp']['latitude'])
+    first_lng = str(orders[0]['pickUp']['longitude'])
 
     return first_lat ==  CONSTANTS['WAREHOUSE_LOCATION']['LAT'] and \
                                 first_lng ==  CONSTANTS['WAREHOUSE_LOCATION']['LNG']
