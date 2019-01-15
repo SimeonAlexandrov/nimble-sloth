@@ -1,4 +1,5 @@
 import requests
+import json
 from lib.config import cfg
 
 
@@ -47,6 +48,7 @@ def get_receiver_info(order_id):
                        headers={'X-Auth-Token': cfg['requests']['token']})
     
     print 'Facade request info receiver {}'.format(facade_request.status_code)
+    # print 'Receiver info {}'.format(json.stringify(facade_request.json()))
 
 def warehouse_put(order, session_id):
     r = requests.get(cfg['requests']['router_base_url'] + '/apps/' + cfg['requests']['warehouse_app_id'], 
@@ -56,6 +58,7 @@ def warehouse_put(order, session_id):
     print 'Warehouse url obtained %s' % warehouse_url
     print 'Put order with id: {}'.format(order['orderId'])
     put_request = requests.post(warehouse_url + '/orders', json={'id': order['orderId']}, headers={'X-Auth-Token': cfg['requests']['token']})
+    print put_request.request.body
     print 'Put request %s' % put_request.status_code
     print 'Order {} put to warehouse'.format(order['orderId'])
 
